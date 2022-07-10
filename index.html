@@ -438,13 +438,92 @@
             </li>
           </ul>
         </div>
+        <!-- Footer form -->
+        <div class="footer-form">
+          <form class="js-speaker-form" autocomplete="off">
+            <label class="footer-form-label" for="email"
+              >Подпишитесь на рассылку</label
+            >
+            <div class="input-and-btn">
+              <input
+                class="footer-input"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="E-mail"
+              />
+              <button class="footer-btn-submit" type="submit">
+                Подписаться
+                <svg class="footer-btn-icon" width="24px" height="24px">
+                  <use href="./images/icons.svg#icon-form-send"></use>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </footer>
 
     <!-- Модальне вікно -->
     <div class="backdrop is-hidden" data-modal>
       <div class="modal">
-        <p></p>
+        <h4 class="modal-form-title">
+          Оставьте свои данные, мы вам перезвоним
+        </h4>
+        <form class="modal-form" autocomplete="off">
+          <label class="modal-user-label modal-label" for="user">Имя</label>
+          <input
+            class="modal-user-input modal-input"
+            type="text"
+            name="user"
+            id="user"
+          />
+
+          <label class="modal-tel-label modal-label" for="tel">Телефон</label>
+          <input
+            class="modal-tel-input modal-input"
+            type="tel"
+            name="tel"
+            id="tel"
+          />
+
+          <label class="modal-email-label modal-label" for="modal-email"
+            >Почта</label
+          >
+          <input
+            class="modal-email-input modal-input"
+            type="email"
+            name="modal-email"
+            id="modal-email"
+          />
+
+          <label class="modal-comment-label" for="modal-comment"
+            >Комментарий</label
+          >
+          <textarea
+            class="modal-comment-input modal-input"
+            name="modal-comment"
+            id="modal-comment"
+            placeholder="Введите текст"
+          ></textarea>
+
+          <div class="modal-agree-checkbox">
+            <input
+              class="agree-checkbox"
+              type="checkbox"
+              name="agree-newsletter"
+              value=""
+              id="agree-newsletter"
+            />
+            <span class="checkbox-item"></span>
+            <label class="modal-checkbox-text" for="agree-newsletter"
+              >Соглашаюсь с рассылкой и принимаю
+              <a class="accent-text-agree" href="#">Условия договора</a></label
+            >
+          </div>
+
+          <button class="modal-btn-submit" type="submit">Отправить</button>
+        </form>
         <button class="modal-btn-close" data-modal-close>
           <svg
             class="close-icon"
@@ -457,6 +536,19 @@
         </button>
       </div>
     </div>
+    <script>
+      (() => {
+        document
+          .querySelector(".js-speaker-form")
+          .addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            new FormData(e.currentTarget).forEach((value, name) =>
+              console.log(`${name}: ${value}`)
+            );
+          });
+      })();
+    </script>
     <script src="./js/modal.js"></script>
   </body>
 </html>
