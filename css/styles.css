@@ -301,7 +301,8 @@ img {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
-  transition: opacity 250ms var(--timing-function);
+  transition: opacity 250ms var(--timing-function),
+    visibility 250ms var(--timing-function);
 }
 
 .backdrop.is-hidden {
@@ -330,8 +331,10 @@ img {
 }
 
 .modal-form {
-  display: flex;
-  flex-direction: column;
+  width: 448px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
 }
 
 .modal-form-title {
@@ -344,8 +347,13 @@ img {
   color: var(--primary-text-color);
 }
 
-.modal-label {
-  display: block;
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 10px 0;
+}
+
+.form-field label {
   margin-bottom: 4px;
   font-size: 12px;
   line-height: 1.17;
@@ -353,46 +361,65 @@ img {
   color: var(--secondary-text-color);
 }
 
-.modal-input {
+.form-field input {
   display: block;
   width: 100%;
+  padding: 11px 12px 11px 42px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: border-color 250ms var(--timing-function);
+}
+
+.input-with-icon {
+  position: relative;
   height: 40px;
-  margin-bottom: 10px;
+}
+
+.modal-form-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  fill: var(--primary-text-color);
+  transition: fill 250ms var(--timing-function);
+}
+
+.modal-input:focus {
+  border-color: var(--accent-bg);
+  outline-width: 0px;
+}
+
+.modal-input:focus + .modal-form-icon {
+  fill: var(--accent-bg);
+}
+
+.form-field.form-textarea {
+  margin-bottom: 20px;
+}
+
+.modal-comment-input {
+  padding: 12px 16px;
+  height: 120px;
+  resize: none;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
 }
 
-.modal-comment-input {
-  display: block;
-  padding: 12px 16px;
-  margin-bottom: 20px;
-  width: 100%;
-  height: 120px;
-  resize: none;
+.modal-comment-input::placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
 }
+
+/* MODAL CHECKBOX (AGREEMENT) */
 
 .modal-agree-checkbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-}
+  position: relative;
+  display: block;
+  padding-left: 37px;
+  margin: 0px auto 30px auto;
 
-.agree-checkbox {
-  appearance: none;
-}
-
-.checkbox-item {
-  width: 16px;
-  height: 15px;
-  /* background: #212121; */
-  border: 2px solid #000000;
-  border-radius: 2px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.modal-checkbox-text {
-  margin-left: 9px;
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--secondary-text-color);
@@ -402,6 +429,82 @@ img {
   color: var(--links-accent-text-color);
   text-decoration-line: underline;
   text-decoration-skip-ink: none;
+}
+
+.agree-checkbox {
+  /* appearance: none; */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.checkbox-item {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 13px;
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  /* background: #212121; */
+  border: 2px solid #000000;
+  border-radius: 2px;
+  opacity: 1;
+  transition: opacity 250ms var(--timing-function);
+}
+
+.checkbox-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 13px;
+  display: inline-block;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 250ms var(--timing-function),
+    background-color 250ms var(--timing-function);
+}
+
+.agree-checkbox:checked ~ .checkbox-item {
+  opacity: 0;
+}
+
+.agree-checkbox:checked ~ .checkbox-icon {
+  background-color: var(--accent-bg);
+  opacity: 1;
+}
+
+/* MODAL BUTTON (SUBMIT) */
+
+.modal-btn-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  padding: 0 0;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  color: var(--white-text-color);
+  background: var(--accent-bg);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border: 0px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-btn-submit:hover,
+.modal-btn-submit:focus {
+  background-color: #188ce8;
 }
 
 .modal-btn-close {
@@ -416,10 +519,16 @@ img {
   cursor: pointer;
 }
 
+.modal-btn-close:hover .close-icon,
+.modal-btn-close:focus .close-icon {
+  fill: var(--accent-bg);
+}
+
 .close-icon {
   position: absolute;
   top: 50%;
   left: 50%;
+  fill: #000000;
   transform: translate(-50%, -50%);
 }
 

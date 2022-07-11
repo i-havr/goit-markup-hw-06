@@ -471,59 +471,82 @@
           Оставьте свои данные, мы вам перезвоним
         </h4>
         <form class="modal-form" autocomplete="off">
-          <label class="modal-user-label modal-label" for="user">Имя</label>
-          <input
-            class="modal-user-input modal-input"
-            type="text"
-            name="user"
-            id="user"
-          />
+          <div class="form-field">
+            <label class="modal-user-label modal-label" for="user">Имя</label>
+            <div class="input-with-icon">
+              <input
+                class="modal-user-input modal-input"
+                type="text"
+                name="user"
+                id="user"
+              />
+              <svg class="modal-form-icon" width="18px" height="18px">
+                <use href="./images/icons.svg#icon-form-person"></use>
+              </svg>
+            </div>
+          </div>
 
-          <label class="modal-tel-label modal-label" for="tel">Телефон</label>
-          <input
-            class="modal-tel-input modal-input"
-            type="tel"
-            name="tel"
-            id="tel"
-          />
+          <div class="form-field">
+            <label class="modal-tel-label modal-label" for="tel">Телефон</label>
+            <div class="input-with-icon">
+              <input
+                class="modal-tel-input modal-input"
+                type="tel"
+                name="tel"
+                id="tel"
+              />
+              <svg class="modal-form-icon" width="18px" height="18px">
+                <use href="./images/icons.svg#icon-form-phone"></use>
+              </svg>
+            </div>
+          </div>
 
-          <label class="modal-email-label modal-label" for="modal-email"
-            >Почта</label
-          >
-          <input
-            class="modal-email-input modal-input"
-            type="email"
-            name="modal-email"
-            id="modal-email"
-          />
+          <div class="form-field">
+            <label class="modal-email-label modal-label" for="modal-email"
+              >Почта</label
+            >
+            <div class="input-with-icon">
+              <input
+                class="modal-email-input modal-input"
+                type="email"
+                name="modal-email"
+                id="modal-email"
+              />
+              <svg class="modal-form-icon" width="18px" height="18px">
+                <use href="./images/icons.svg#icon-form-email"></use>
+              </svg>
+            </div>
+          </div>
 
-          <label class="modal-comment-label" for="modal-comment"
-            >Комментарий</label
-          >
-          <textarea
-            class="modal-comment-input modal-input"
-            name="modal-comment"
-            id="modal-comment"
-            placeholder="Введите текст"
-          ></textarea>
+          <div class="form-field form-textarea">
+            <label class="modal-comment-label" for="modal-comment"
+              >Комментарий</label
+            >
+            <textarea
+              class="modal-comment-input modal-input"
+              name="modal-comment"
+              id="modal-comment"
+              placeholder="Введите текст"
+            ></textarea>
+          </div>
 
-          <div class="modal-agree-checkbox">
+          <label class="modal-agree-checkbox"
+            >Соглашаюсь с рассылкой и принимаю
+            <a class="accent-text-agree" href="#">Условия договора</a>
             <input
               class="agree-checkbox"
               type="checkbox"
               name="agree-newsletter"
-              value=""
-              id="agree-newsletter"
             />
             <span class="checkbox-item"></span>
-            <label class="modal-checkbox-text" for="agree-newsletter"
-              >Соглашаюсь с рассылкой и принимаю
-              <a class="accent-text-agree" href="#">Условия договора</a></label
-            >
-          </div>
+            <svg class="checkbox-icon" width="16px" height="15px">
+              <use href="./images/icons.svg#icon-form-check"></use>
+            </svg>
+          </label>
 
           <button class="modal-btn-submit" type="submit">Отправить</button>
         </form>
+
         <button class="modal-btn-close" data-modal-close>
           <svg
             class="close-icon"
