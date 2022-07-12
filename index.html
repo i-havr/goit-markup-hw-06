@@ -439,9 +439,9 @@
           </ul>
         </div>
         <!-- Footer form -->
-        <div class="footer-form">
-          <form class="js-speaker-form" autocomplete="off">
-            <label class="footer-form-label" for="email"
+        <div class="subscribe">
+          <form class="footer-form" autocomplete="off">
+            <label class="footer-form-label" for="user-email"
               >Подпишитесь на рассылку</label
             >
             <div class="input-and-btn">
@@ -449,7 +449,7 @@
                 class="footer-input"
                 type="email"
                 name="email"
-                id="email"
+                id="user-email"
                 placeholder="E-mail"
               />
               <button class="footer-btn-submit" type="submit">
@@ -467,6 +467,16 @@
     <!-- Модальне вікно -->
     <div class="backdrop is-hidden" data-modal>
       <div class="modal">
+        <button class="modal-btn-close" data-modal-close>
+          <svg
+            class="close-icon"
+            width="11px"
+            height="11px"
+            aria-label="Закрыть"
+          >
+            <use href="./images/icons.svg#icon-modal-close"></use>
+          </svg>
+        </button>
         <h4 class="modal-form-title">
           Оставьте свои данные, мы вам перезвоним
         </h4>
@@ -546,32 +556,9 @@
 
           <button class="modal-btn-submit" type="submit">Отправить</button>
         </form>
-
-        <button class="modal-btn-close" data-modal-close>
-          <svg
-            class="close-icon"
-            width="11px"
-            height="11px"
-            aria-label="Закрыть"
-          >
-            <use href="./images/icons.svg#icon-modal-close"></use>
-          </svg>
-        </button>
       </div>
     </div>
-    <script>
-      (() => {
-        document
-          .querySelector(".js-speaker-form")
-          .addEventListener("submit", (e) => {
-            e.preventDefault();
 
-            new FormData(e.currentTarget).forEach((value, name) =>
-              console.log(`${name}: ${value}`)
-            );
-          });
-      })();
-    </script>
     <script src="./js/modal.js"></script>
   </body>
 </html>
